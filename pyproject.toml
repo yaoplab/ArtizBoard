@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "artizboard"
+version = "0.1.0"
+description = "Système commercial hybride Boutique & Restaurant — Offline-First"
+requires-python = ">=3.10"
+dependencies = [
+    "flet>=0.86",
+    "reportlab>=4.0",
+    "psycopg2-binary>=2.9",
+    "supabase-py>=2.0",
+    "python-dotenv>=1.0",
+    "bcrypt>=4.0",
+    "PyJWT>=2.8",
+    "python-escpos>=3.0",
+    "Pillow>=10.0",
+]

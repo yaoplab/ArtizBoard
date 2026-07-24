@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArtizBoard — Guide de Démarrage</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page { margin: 0; size: A4; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; font-size: 13px; line-height: 1.6; color: #1B1B1F; background: #F5F7FA; }
+
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto 20px; background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,0.12); overflow: hidden; }
+  @media print { .page { box-shadow: none; margin: 0; } }
+
+  /* Cover */
+  .cover { background: linear-gradient(135deg, #1565C0 0%, #0D47A1 100%); color: white; padding: 60px 50px; min-height: 297mm; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+  .cover::before { content: ''; position: absolute; right: -100px; bottom: -100px; width: 500px; height: 500px; border-radius: 50%; border: 3px solid rgba(255,255,255,0.08); }
+  .cover::after { content: ''; position: absolute; right: -50px; bottom: -50px; width: 400px; height: 400px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.05); }
+  .cover-badge { display: inline-block; background: rgba(255,255,255,0.15); padding: 8px 20px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 30px; }
+  .cover h1 { font-size: 52px; font-weight: 900; letter-spacing: -1px; line-height: 1.1; margin-bottom: 15px; position: relative; z-index: 1; }
+  .cover .subtitle { font-size: 20px; opacity: 0.85; font-weight: 500; margin-bottom: 40px; position: relative; z-index: 1; }
+  .cover .meta { font-size: 14px; opacity: 0.7; margin-top: 60px; position: relative; z-index: 1; }
+
+  /* Content pages */
+  .content { padding: 40px 45px; }
+  .content h1 { font-size: 28px; font-weight: 800; color: #1565C0; margin-bottom: 8px; letter-spacing: -0.5px; }
+  .content h2 { font-size: 20px; font-weight: 700; color: #1B1B1F; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 2px solid #BBDEFB; }
+  .content h3 { font-size: 15px; font-weight: 700; color: #455A64; margin: 20px 0 8px; }
+
+  .content p { margin-bottom: 10px; color: #455A64; }
+  .content strong { color: #1B1B1F; }
+
+  /* Cards */
+  .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .card { background: #F5F7FA; border-radius: 12px; padding: 20px; border-left: 4px solid #1565C0; }
+  .card h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; color: #1565C0; }
+  .card p { font-size: 12px; margin: 0; }
+  .card.orange { border-left-color: #E65100; }
+  .card.green { border-left-color: #2E7D32; }
+  .card.red { border-left-color: #C62828; }
+
+  /* Steps */
+  .steps { margin: 20px 0; }
+  .step { display: flex; align-items: flex-start; gap: 15px; padding: 14px 0; border-bottom: 1px solid #E8E8E8; }
+  .step:last-child { border: none; }
+  .step-num { width: 36px; height: 36px; background: #1565C0; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0; }
+  .step-content h4 { font-size: 14px; margin-bottom: 3px; }
+  .step-content p { font-size: 12px; color: #455A64; margin: 0; }
+
+  /* Warning box */
+  .warning { background: #FFCDD2; border: 1px solid #C62828; border-radius: 8px; padding: 14px 18px; margin: 16px 0; }
+  .warning strong { color: #C62828; }
+
+  /* Info box */
+  .info { background: #BBDEFB; border-radius: 8px; padding: 14px 18px; margin: 16px 0; }
+
+  /* Table */
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  th { background: #1565C0; color: #fff; padding: 10px 14px; text-align: left; font-size: 12px; font-weight: 700; }
+  td { padding: 10px 14px; border-bottom: 1px solid #E8E8E8; font-size: 12px; }
+  tr:nth-child(even) td { background: #F5F7FA; }
+
+  /* Footer */
+  .footer { text-align: center; padding: 20px; color: #90A4AE; font-size: 10px; }
+  .footer-page { position: absolute; bottom: 30px; right: 45px; font-size: 11px; color: #B0BEC5; }
+
+  .icon-block { font-size: 32px; margin-bottom: 8px; }
+  .tag { display: inline-block; background: #BBDEFB; color: #1565C0; padding: 4px 12px; border-radius: 50px; font-size: 11px; font-weight: 600; margin: 2px; }
+
+  .price-box { background: linear-gradient(135deg, #1565C0, #0D47A1); color: #fff; padding: 20px 28px; border-radius: 12px; text-align: center; margin: 20px 0; }
+  .price-box .amount { font-size: 36px; font-weight: 900; }
+  .price-box .period { font-size: 14px; opacity: 0.8; }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 — COVER -->
+<div class="page" style="position:relative">
+  <div class="cover">
+    <div class="cover-badge">Documentation Client</div>
+    <h1>ArtizBoard</h1>
+    <div class="subtitle">Système commercial intelligent<br>pour restaurants & boutiques</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:1">
+      <span class="tag" style="background:rgba(255,255,255,0.2);color:#fff">🍽️ Restauration</span>
+      <span class="tag" style="background:rgba(255,255,255,0.2);color:#fff">🛍️ Boutique</span>
+      <span class="tag" style="background:rgba(255,255,255,0.2);color:#fff">📱 Mobile</span>
+      <span class="tag" style="background:rgba(255,255,255,0.2);color:#fff">🌐 Site Web</span>
+      <span class="tag" style="background:rgba(255,255,255,0.2);color:#fff">🇹🇬 Togo</span>
+    </div>
+    <div class="meta">
+      Version 1.0 — Licence MIT<br>
+      Installation : ____________________
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2 — CE QUE VOUS RECEVEZ -->
+<div class="page" style="position:relative">
+  <div class="content">
+    <h1>Ce que vous recevez</h1>
+    <p>Félicitations ! Votre établissement est maintenant équipé d'ArtizBoard, un système complet de gestion commerciale. Voici les 4 outils inclus dans votre abonnement :</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="icon-block">💻</div>
+        <h4>App Admin (PC)</h4>
+        <p>Gérez votre catalogue, vos utilisateurs, vos prix et voyez vos rapports de vente. Interface simple, tout en français.</p>
+      </div>
+      <div class="card orange">
+        <div class="icon-block">📱</div>
+        <h4>App Staff (Téléphone)</h4>
+        <p>Vos serveurs prennent les commandes, encaissent et la cuisine voit les commandes en direct.</p>
+      </div>
+      <div class="card green">
+        <div class="icon-block">🌐</div>
+        <h4>Site Web</h4>
+        <p>Votre restaurant sur internet. Les clients consultent le menu, commandent avant d'arriver. Zéro commission !</p>
+      </div>
+      <div class="card red">
+        <div class="icon-block">📊</div>
+        <h4>Tableau de Bord</h4>
+        <p>Chiffre d'affaires, meilleures ventes, alertes stock. Exportez en PDF ou Excel pour votre comptabilité.</p>
+      </div>
+    </div>
+
+    <h2>Comment vos clients commandent</h2>
+    <div class="info">
+      <strong>🟢 Scannez → Commandez → Dégustez</strong><br>
+      Le client scanne le QR code sur la table avec son téléphone. Le menu s'affiche. 
+      Il choisit ses plats, valide. La commande arrive directement en cuisine. 
+      <strong style="color:#1565C0">Pas d'application à installer.</strong>
+    </div>
+
+    <div class="footer-page">Page 2</div>
+  </div>
+</div>
+
+<!-- PAGE 3 — VOS IDENTIFIANTS -->
+<div class="page" style="position:relative">
+  <div class="content">
+    <h1>Vos Identifiants</h1>
+    <p style="color:#C62828;font-weight:700">🔒 À conserver précieusement. Ne pas partager avec les clients.</p>
+
+    <table>
+      <tr><th colspan="2">💻 App Admin (PC)</th></tr>
+      <tr><td width="50%"><strong>Programme</strong></td><td>ArtizBoard Admin (icône sur le bureau)</td></tr>
+      <tr><td><strong>Email</strong></td><td style="color:#1565C0;font-weight:700">_______________@_____.___</td></tr>
+      <tr><td><strong>Mot de passe</strong></td><td style="color:#1565C0;font-weight:700">_________________________</td></tr>
+    </table>
+
+    <table>
+      <tr><th colspan="2">📱 Téléphones (App Staff)</th></tr>
+      <tr><td><strong>Serveur 1</strong></td><td>QR code → scannez depuis le téléphone</td></tr>
+      <tr><td><strong>Serveur 2</strong></td><td>QR code → scannez depuis le téléphone</td></tr>
+      <tr><td><strong>Cuisinier</strong></td><td>QR code → scannez depuis le téléphone</td></tr>
+    </table>
+
+    <table>
+      <tr><th colspan="2">🌐 Site Web</th></tr>
+      <tr><td><strong>Adresse</strong></td><td style="color:#1565C0;font-weight:700">https://_______________</td></tr>
+      <tr><td><strong>Admin WordPress</strong></td><td>https://_______________/wp-admin</td></tr>
+    </table>
+
+    <table>
+      <tr><th colspan="2">🖨️ Imprimante</th></tr>
+      <tr><td><strong>Modèle</strong></td><td>______________________________</td></tr>
+      <tr><td><strong>Adresse IP</strong></td><td>____.____.____.____</td></tr>
+    </table>
+
+    <div class="info" style="margin-top:20px">
+      <strong>📞 Support technique</strong><br>
+      WhatsApp : _______________<br>
+      Disponible : Lundi - Samedi, 9h - 18h
+    </div>
+
+    <div class="footer-page">Page 3</div>
+  </div>
+</div>
+
+<!-- PAGE 4 — GUIDE ADMIN -->
+<div class="page" style="position:relative">
+  <div class="content">
+    <h1>Guide Admin (Gérant)</h1>
+    <p>Ce que vous pouvez faire depuis le PC du bureau.</p>
+
+    <h2>1. Gérer votre catalogue</h2>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content"><h4>Ouvrez le menu Catalogue</h4><p>Dans le menu de gauche, cliquez sur <strong>Catalogue</strong>.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content"><h4>Ajoutez une catégorie</h4><p>Cliquez sur <strong>+</strong> dans la colonne de gauche. Donnez un nom (ex: "Entrées", "Plats", "Boissons").</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content"><h4>Ajoutez un produit</h4><p>Sélectionnez une catégorie, puis <strong>Ajouter un produit</strong>. Remplissez le nom, le prix (en FCFA), la description.</p></div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content"><h4>Ajoutez une photo</h4><p>📷 Cliquez sur <strong>Uploader une photo</strong> pour illustrer le plat.</p></div>
+    </div>
+
+    <h2>2. Gérer vos utilisateurs</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content"><h4>Menu Utilisateurs</h4><p>Cliquez sur <strong>Utilisateurs</strong> dans le menu.</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content"><h4>Ajouter un employé</h4><p>Cliquez sur <strong>+ Ajouter</strong>. Saisissez le nom, email, rôle (serveur, cuisinier...).</p></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content"><h4>Générer le QR code</h4><p>Cliquez sur l'icône <strong>QR</strong>. Le code s'affiche à l'écran. Scannez-le avec le téléphone de l'employé.</p></div>
+      </div>
+    </div>
+
+    <h2>3. Apparence du site web</h2>
+    <p>Menu <strong>Établissement → Apparence</strong>. Choisissez un template dans le menu déroulant. Les couleurs, polices et images changent immédiatement sur votre site web.</p>
+
+    <div class="footer-page">Page 4</div>
+  </div>
+</div>
+
+<!-- PAGE 5 — GUIDE STAFF -->
+<div class="page" style="position:relative">
+  <div class="content">
+    <h1>Guide Serveur & Cuisinier</h1>
+    <p>Utilisation de l'application sur le téléphone.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h4>📋 Prendre une commande</h4>
+        <p>1. Onglet <strong>Commander</strong><br>2. Choisissez la <strong>table</strong><br>3. Ajoutez les plats → <strong>Valider</strong></p>
+      </div>
+      <div class="card orange">
+        <h4>👀 Suivre les commandes</h4>
+        <p>1. Onglet <strong>En cours</strong><br>2. 🟢 Prêt → <strong>Servir ✓</strong></p>
+      </div>
+      <div class="card green">
+        <h4>💰 Encaisser</h4>
+        <p>1. Onglet <strong>Encaisser</strong><br>2. Choisissez la commande → <strong>Payer</strong></p>
+      </div>
+      <div class="card">
+        <h4>🍳 Cuisine (KDS)</h4>
+        <p>1. Onglet <strong>Cuisine</strong><br>2. Flèche → pour avancer<br>3. Colonnes : En attente | En préparation | Prêt</p>
+      </div>
+    </div>
+
+    <h2>Astuces</h2>
+    <div class="info">
+      <strong>🔄 Rafraîchir :</strong> le bouton 🔄 recharge les commandes.<br>
+      <strong>📱 Plusieurs téléphones :</strong> chaque serveur a son téléphone, tous voient les mêmes commandes.<br>
+      <strong>🔊 Son :</strong> un bip retentit quand une nouvelle commande arrive en cuisine.
+    </div>
+
+    <div class="footer-page">Page 5</div>
+  </div>
+</div>
+
+<!-- PAGE 6 — QR CODE + SUPPORT -->
+<div class="page" style="position:relative">
+  <div class="content">
+    <h1>QR Code & Dépannage</h1>
+
+    <h2>Pour vos clients</h2>
+    <div class="info" style="text-align:center;padding:30px">
+      <div style="font-size:48px;margin-bottom:10px">📱</div>
+      <div style="font-size:18px;font-weight:700;margin-bottom:8px">Scannez pour commander !</div>
+      <div style="font-size:14px;color:#455A64">
+        1. Ouvrez l'appareil photo de votre téléphone<br>
+        2. Visez le QR code sur la table<br>
+        3. Le menu s'affiche → commandez directement<br>
+        <strong style="color:#1565C0">Pas d'application à installer !</strong>
+      </div>
+    </div>
+
+    <h2>Que faire si...</h2>
+    <table>
+      <tr><th>Problème</th><th>Solution</th></tr>
+      <tr><td><strong>L'appli Admin ne s'ouvre pas</strong></td><td>Redémarrez le PC. Si le problème persiste, appelez le support.</td></tr>
+      <tr><td><strong>Les serveurs ne voient plus les commandes</strong></td><td>Vérifiez que le Wi-Fi fonctionne. Redémarrez les téléphones.</td></tr>
+      <tr><td><strong>Le site web est vide</strong></td><td>Vérifiez la connexion internet. Rafraîchissez la page.</td></tr>
+      <tr><td><strong>Mot de passe oublié</strong></td><td>Contactez le gérant pour réinitialiser.</td></tr>
+      <tr><td><strong>La commande n'apparaît pas en cuisine</strong></td><td>Appuyez sur le bouton 🔄 pour rafraîchir.</td></tr>
+      <tr><td><strong>QR code ne scanne pas</strong></td><td>Vérifiez l'éclairage. Saisissez le code manuellement.</td></tr>
+    </table>
+
+    <div class="warning">
+      <strong>⚠️ IMPORTANT</strong><br>
+      En cas de panne de courant ou de Wi-Fi, l'application continue de fonctionner sur le réseau local. 
+      Les commandes sont sauvegardées et synchronisées dès que la connexion revient.
+    </div>
+
+    <div class="footer-page">Page 6</div>
+  </div>
+</div>
+
+<!-- PAGE 7 — TARIFS + CONTRAT -->
+<div class="page" style="position:relative">
+  <div class="content">
+    <h1>Votre Abonnement</h1>
+
+    <div class="price-box">
+      <div class="amount" id="forfaitAmount">35 000 FCFA</div>
+      <div class="period">/ mois</div>
+      <div style="margin-top:8px;opacity:0.8">Forfait Standard</div>
+    </div>
+
+    <table>
+      <tr><th colspan="2">Votre contrat</th></tr>
+      <tr><td><strong>Forfait</strong></td><td>☐ Petit (15 000 F) ☐ Standard (35 000 F) ☐ Pro (65 000 F)</td></tr>
+      <tr><td><strong>Installation</strong></td><td>50 000 FCFA (frais unique)</td></tr>
+      <tr><td><strong>QR codes</strong></td><td>15 000 FCFA (si applicable)</td></tr>
+      <tr><td><strong>Durée</strong></td><td>3 mois minimum, renouvellement automatique</td></tr>
+      <tr><td><strong>Paiement</strong></td><td>TMoney / Flooz / Espèces / Virement</td></tr>
+    </table>
+
+    <h2>Signatures</h2>
+    <table>
+      <tr><td width="50%"><strong>Prestataire (ArtizBoard)</strong></td><td><strong>Client</strong></td></tr>
+      <tr><td style="height:60px"></td><td style="height:60px"></td></tr>
+      <tr><td>Date : ___ /___ /____</td><td>Date : ___ /___ /____</td></tr>
+    </table>
+
+    <div class="info">
+      <strong>✅ Inclus dans l'abonnement :</strong> Mises à jour logicielles, support WhatsApp, synchronisation Supabase, site web (si forfait Pro).<br>
+      <strong>❌ Non inclus :</strong> Nouveau matériel (PC, téléphones), déplacements hors Lomé, formation supplémentaire.
+    </div>
+
+    <p style="text-align:center;margin-top:24px;color:#90A4AE;font-size:10px">
+      © 2026 ArtizBoard — Licence MIT — Logiciel libre et ouvert<br>
+      www.artizboard.tg
+    </p>
+
+    <div class="footer-page">Page 7</div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArtizBoard — Client</title>
+  <meta name="description" content="Commandez en ligne depuis votre restaurant préféré.">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-brand" id="navBrand">🍽️ <span id="brandName"></span></div>
+    <div class="nav-links" id="navLinks">
+      <button class="nav-link active" data-tab="accueil">Accueil</button>
+      <button class="nav-link" data-tab="carte">🍽️ Carte</button>
+      <button class="nav-link" data-tab="apropos">ℹ️ À Propos</button>
+      <button class="nav-link" data-tab="contact">📞 Contact</button>
+      <button class="nav-link nav-cart" id="cartBtn">
+        🛒 <span class="cart-badge hidden" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main class="page-content" id="mainContent"></main>
+
+<div class="overlay hidden" id="cartOverlay"></div>
+<div class="drawer hidden" id="cartDrawer">
+  <div class="drawer-header">
+    <h2>🛒 Votre panier</h2>
+    <button class="btn-icon" id="cartClose">✕</button>
+  </div>
+  <div class="drawer-body" id="cartItems"></div>
+  <div class="drawer-footer">
+    <div class="cart-total"><span>Total</span><span id="cartTotal">0 FCFA</span></div>
+    <button class="btn btn-primary btn-block" id="checkoutBtn" disabled>Commander</button>
+  </div>
+</div>
+
+<div class="toast hidden" id="toast"></div>
+
+<footer class="footer"><span id="footerText"></span></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
